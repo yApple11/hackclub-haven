@@ -140,7 +140,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_epypp")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
-bounce = 0.81
+bounce = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7yf00"]
 radius = 8.0
@@ -162,9 +162,9 @@ physics_material_override = SubResource("PhysicsMaterial_epypp")
 script = ExtResource("2_0hol4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1551410805]
-position = Vector2(0, -1)
+position = Vector2(-20, -2)
 shape = SubResource("CircleShape2D_7yf00")
 
 [node name="Ball" type="Sprite2D" parent="RigidBody2D" unique_id=849156608]
-position = Vector2(-1, 1)
+position = Vector2(-21, -1)
 texture = ExtResource("2_epypp")
