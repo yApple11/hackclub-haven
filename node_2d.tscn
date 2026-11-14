@@ -149,12 +149,13 @@ radius = 8.0
 position = Vector2(-5, -9)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=147486457]
-zoom = Vector2(10, 10)
+offset = Vector2(0, -40)
+zoom = Vector2(4, 4)
 
-[node name="floor" type="TileMap" parent="." unique_id=1530599293]
+[node name="Testing gloor" type="TileMap" parent="." unique_id=1530599293]
 tile_set = SubResource("TileSet_7yf00")
 format = 2
-layer_0/tile_data = PackedInt32Array(131071, 0, 9, 65536, 0, 9, 131070, 0, 9, 65537, 0, 9)
+layer_0/tile_data = PackedInt32Array(131071, 0, 9, 65536, 0, 9, 131070, 0, 9, 65537, 0, 9, 131069, 0, 9, 131068, 0, 9, 65538, 0, 9, 65539, 0, 9, 65540, 0, 9, 131067, 0, 9, 131066, 0, 9, 131064, 0, 9, 131063, 0, 9, 131065, 0, 9, 65541, 0, 9, 65542, 0, 9, 65543, 0, 9, 65544, 0, 9, 65527, 0, 9, -9, 0, 9, -65545, 0, 9, -131081, 0, 9, -196617, 0, 9, -262153, 0, 9, 8, 0, 9, -65528, 0, 9, -131064, 0, 9, -196600, 0, 9, -262136, 0, 9, -327672, 0, 9)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1458652964]
 physics_material_override = SubResource("PhysicsMaterial_epypp")

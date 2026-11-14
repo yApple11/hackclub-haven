@@ -24,11 +24,10 @@ func _physics_process(_delta: float) -> void:
 		
 	if Input.is_action_pressed("ui_right"):
 		apply_central_force(right)
-	
-
 		
-	
-	
+	var count = 0
 	# Jump: only when touching something
-	if Input.is_action_just_pressed("ui_accept") and get_contact_count() > 0:
+	if Input.is_action_just_pressed("ui_accept") and count <1:
 		apply_central_impulse(Vector2(0, -jump_impulse))
+		count+=1
+	
