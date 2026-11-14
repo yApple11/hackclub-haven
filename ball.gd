@@ -9,25 +9,25 @@ extends RigidBody2D
 func _ready() -> void:
 	# Needed so get_contact_count() works (to know if we're touching the floor)
 	contact_monitor = true
-	max_contacts_reported = 4
+	max_contacts_reported = 1
 
 
 func _physics_process(_delta: float) -> void:
 	print(Input.is_action_pressed("ui_right"))
 	# Left/right: push the ball with a force; physics handles the movement and bouncing
 	
-	var right := Vector2(300, 0)
-	var left := Vector2(-300,0)
+	var right := Vector2(10, 0)
+	var left := Vector2(-10,0)
 		
 	if Input.is_action_pressed("ui_left"):
-		apply_central_force(left)
+		apply_central_impulse(left)
 		
 	if Input.is_action_pressed("ui_right"):
-		apply_central_force(right)
+		apply_central_impulse(right)
 		
 	var count = 0
 	# Jump: only when touching something
-	if Input.is_action_just_pressed("ui_accept") and get_contact_count() >= 1:
-		apply_central_impulse(Vector2(0, -300))
+	if Input.is_action_just_pressed("ui_accept") and get_contact_count() == 1:
+		apply_central_impulse(Vector2(0, -400))
 		count+=1
 	

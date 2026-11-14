@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cuhnulsdmgreo"]
 
-[ext_resource type="Texture2D" uid="uid://dk77g0npgnwbq" path="res://scenes/world_tileset.png" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://di7cnbeg4op5t" path="res://ball.gd" id="2_0hol4"]
-[ext_resource type="Texture2D" uid="uid://dmgdl2okx1i1v" path="res://scenes/bouncy ball.png 12-33-19-931.png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://dxpya83ggh0ct" path="res://scenes/dlete.png" id="1_bxfy6"]
+[ext_resource type="Script" uid="uid://vr65kdwmpju4" path="res://ball.gd" id="2_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://gtianto0esr" path="res://scenes/bouncy ball.png 12-33-19-931.png" id="3_7jktm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
-texture = ExtResource("2_0e48y")
+texture = ExtResource("1_bxfy6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -94,7 +94,7 @@ texture = ExtResource("2_0e48y")
 7:8/0 = 0
 8:8/0 = 0
 0:9/0 = 0
-0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, 8, 8, -8, 8)
 1:9/0 = 0
 2:9/0 = 0
 3:9/0 = 0
@@ -140,7 +140,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_epypp")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
-bounce = 0.7
+rough = true
+bounce = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7yf00"]
 radius = 8.0
@@ -152,19 +153,20 @@ position = Vector2(-5, -9)
 offset = Vector2(0, -40)
 zoom = Vector2(4, 4)
 
-[node name="Testing gloor" type="TileMap" parent="." unique_id=1530599293]
+[node name="Testing floor" type="TileMap" parent="." unique_id=1530599293]
 tile_set = SubResource("TileSet_7yf00")
+collision_animatable = true
 format = 2
-layer_0/tile_data = PackedInt32Array(131071, 0, 9, 65536, 0, 9, 131070, 0, 9, 65537, 0, 9, 131069, 0, 9, 131068, 0, 9, 65538, 0, 9, 65539, 0, 9, 65540, 0, 9, 131067, 0, 9, 131066, 0, 9, 131064, 0, 9, 131063, 0, 9, 131065, 0, 9, 65541, 0, 9, 65542, 0, 9, 65543, 0, 9, 65544, 0, 9, 65527, 0, 9, -9, 0, 9, -65545, 0, 9, -131081, 0, 9, -196617, 0, 9, -262153, 0, 9, 8, 0, 9, -65528, 0, 9, -131064, 0, 9, -196600, 0, 9, -262136, 0, 9, -327672, 0, 9)
+layer_0/tile_data = PackedInt32Array(131071, 0, 9, 65536, 0, 9, 131070, 0, 9, 65537, 0, 9, 131069, 0, 9, 131068, 0, 9, 65538, 0, 9, 65539, 0, 9, 65540, 0, 9, 131067, 0, 9, 131066, 0, 9, 131064, 0, 9, 131063, 0, 9, 131065, 0, 9, 65541, 0, 9, 65542, 0, 9, 65543, 0, 9, 65544, 0, 9, 65527, 0, 9, -9, 0, 9, -65545, 0, 9, -131081, 0, 9, -196617, 0, 9, -262153, 0, 9, 8, 0, 9, -65528, 0, 9, -131064, 0, 9, -196600, 0, 9, -262136, 0, 9, -327672, 0, 9, -131071, 0, 9, -131070, 0, 9, -131069, 0, 9, -131079, 0, 9, -131077, 0, 9, -131078, 0, 9, -327676, 0, 9, -327675, 0, 9, -327674, 0, 9, -393208, 0, 9, -458744, 0, 9, -327689, 0, 9, -393225, 0, 9, -458761, 0, 9, -524297, 0, 9, -524296, 0, 9, -524295, 0, 9, -524294, 0, 9, -524293, 0, 9, -524292, 0, 9, -524291, 0, 9, -524290, 0, 9, -524289, 0, 9, -589824, 0, 9, -589823, 0, 9, -589822, 0, 9, -589821, 0, 9, -589820, 0, 9, -589819, 0, 9, -589818, 0, 9, -589817, 0, 9, -589816, 0, 9, -524280, 0, 9)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1458652964]
+[node name="Ball whole" type="RigidBody2D" parent="." unique_id=1458652964]
 physics_material_override = SubResource("PhysicsMaterial_epypp")
-script = ExtResource("2_0hol4")
+script = ExtResource("2_fc0e3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1551410805]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball whole" unique_id=1551410805]
 position = Vector2(-20, -2)
 shape = SubResource("CircleShape2D_7yf00")
 
-[node name="Ball" type="Sprite2D" parent="RigidBody2D" unique_id=849156608]
+[node name="Sprite" type="Sprite2D" parent="Ball whole" unique_id=849156608]
 position = Vector2(-21, -1)
-texture = ExtResource("2_epypp")
+texture = ExtResource("3_7jktm")

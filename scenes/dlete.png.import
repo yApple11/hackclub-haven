@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dycit6doi8gjs"
-valid=false
+uid="uid://dxpya83ggh0ct"
+path="res://.godot/imported/dlete.png-a73cb3337818ed6a3220799e431b98c4.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://scenes/ji the just.png"
+source_file="res://scenes/dlete.png"
+dest_files=["res://.godot/imported/dlete.png-a73cb3337818ed6a3220799e431b98c4.ctex"]
 
 [params]
 

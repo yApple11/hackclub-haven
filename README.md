@@ -1,2 +1,2 @@
 # hackclub-haven
-It's just a game me and my friend worked on in the haven game jam.
+It's just a game me and my friends worked on in the haven game jam.
