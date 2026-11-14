@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cuhnulsdmgreo"]
 
 [ext_resource type="Texture2D" uid="uid://dk77g0npgnwbq" path="res://scenes/world_tileset.png" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://b6si8ilolsjv6" path="res://ball control test.gd" id="2_0hol4"]
 [ext_resource type="Texture2D" uid="uid://dmgdl2okx1i1v" path="res://scenes/bouncy ball.png 12-33-19-931.png" id="2_epypp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
@@ -143,9 +142,10 @@ sources/0 = SubResource("TileSetAtlasSource_epypp")
 bounce = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7yf00"]
-radius = 9.0
+radius = 11.0
 
 [node name="Node2D" type="Node2D" unique_id=1500159793]
+position = Vector2(-5, -9)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=147486457]
 zoom = Vector2(10, 10)
@@ -155,16 +155,17 @@ tile_set = SubResource("TileSet_7yf00")
 format = 2
 layer_0/tile_data = PackedInt32Array(131071, 0, 9, 65536, 0, 9, 131070, 0, 9, 65537, 0, 9)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1458652964]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=563936118]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="CharacterBody2D" unique_id=1458652964]
 mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_41u45")
 gravity_scale = 0.925
-script = ExtResource("2_0hol4")
 
-[node name="Ball" type="Sprite2D" parent="RigidBody2D" unique_id=849156608]
+[node name="Ball" type="Sprite2D" parent="CharacterBody2D/RigidBody2D" unique_id=849156608]
 position = Vector2(-1, 1)
 texture = ExtResource("2_epypp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1551410805]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/RigidBody2D" unique_id=1551410805]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_7yf00")
