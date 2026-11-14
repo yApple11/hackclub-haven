@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dp6tpjmdqpryd"]
+
+[ext_resource type="Script" uid="uid://di7cnbeg4op5t" path="res://ball.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://dxdm1100pbcl4" path="res://scenes/bouncy ball.png" id="2_ktgx5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7yf00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgol0"]
+atlas = ExtResource("2_ktgx5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5601"]
+atlas = ExtResource("2_ktgx5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gchj4"]
+atlas = ExtResource("2_ktgx5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xytf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgol0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5601")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gchj4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2012221877]
+script = ExtResource("1_41u45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=90523203]
+shape = SubResource("CircleShape2D_7yf00")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1240790626]
+position = Vector2(-3, -1)
+sprite_frames = SubResource("SpriteFrames_xytf0")
