@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddv4vvohhn0m5"
-path="res://.godot/imported/side_profile_sprite_sheet.png-ef7e3080a5a1e6b4df2946813c6d73fb.ctex"
+uid="uid://denewyyqcsd6m"
+path="res://.godot/imported/grandma.png-75a24aefe7ca9c9ad6a9c912cfd966b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/side_profile_sprite_sheet.png"
-dest_files=["res://.godot/imported/side_profile_sprite_sheet.png-ef7e3080a5a1e6b4df2946813c6d73fb.ctex"]
+source_file="res://assets/grandma.png"
+dest_files=["res://.godot/imported/grandma.png-75a24aefe7ca9c9ad6a9c912cfd966b6.ctex"]
 
 [params]
 
