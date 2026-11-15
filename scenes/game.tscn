@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bd8xo683la7p6" path="res://assets/floor2.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://6yune86jbqwd" path="res://scenes/bat mob.tscn" id="3_lbhrr"]
 [ext_resource type="Script" uid="uid://capjkal3ubihj" path="res://Scripts/bat_mob.gd" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://bvr0fbqaaqddg" path="res://tile_map.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://0ri7vqoalgm3" path="res://tile_map.gd" id="6_p57ef"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
 rough = true
@@ -11,6 +13,8 @@ bounce = 0.5
 
 [sub_resource type="GDScript" id="GDScript_38j7h"]
 script/source = "extends RigidBody2D
+
+# This holds a reference to the active player in the scene
 
 @export var movemement_speed := 300.0     # sideways push from left/right input
 @export var max_speed := 150.0      # stop pushing once moving this fast
@@ -116,3 +120,6 @@ layer_0/tile_data = PackedInt32Array(262167, 65536, 2, 327703, 65536, 2, 262168,
 [node name="RigidBody2D" parent="." unique_id=1946123408 instance=ExtResource("3_lbhrr")]
 position = Vector2(-4, -88)
 script = ExtResource("4_iywne")
+
+[node name="TileMap" parent="." unique_id=1189788139 instance=ExtResource("5_iywne")]
+script = ExtResource("6_p57ef")
