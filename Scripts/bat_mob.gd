@@ -1,24 +1,25 @@
 extends RigidBody2D
 
-@export var x_right = 15
-@export var x_left = -90
-@export var start_position = Vector2(-90, -96)
+@export var start_position: Vector2 = Vector2(-94, -96)
+@export var speed: float = 50.0
+@onready var timer: Timer = $Timer
 
-	
-func _ready():
+var direction := 1
+
+func _ready() -> void:
 	gravity_scale = 0
 	lock_rotation = true
 	global_position = start_position
-	freeze = true
-	freeze_mode = FREEZE_MODE_KINEMATIC
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	timer.timeout.connect(_on_timer_timeout)
+	timer.start()
+
+
 func _physics_process(_delta: float) -> void:
-	var movemet = 0
-	if global_position.x < x_right:
-		apply_central_impulse(Vector2(100,0))
-		
-	if global_position.x > x_left:
-		apply_central_impulse(Vector2(-100,0))
+	# Move at a steady speed; direction is 1 (right) or -1 (left)
+	linear_velocity = Vector2(speed * direction, 0)
+	print(global_position)
+	global_position.y = -97
+
+func _on_timer_timeout():
 	
-		print(global_position)
+	direction *= -1
