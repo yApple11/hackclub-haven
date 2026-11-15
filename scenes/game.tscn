@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bd8xo683la7p6" path="res://assets/floor2.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://6yune86jbqwd" path="res://scenes/bat mob.tscn" id="3_lbhrr"]
 [ext_resource type="Script" uid="uid://capjkal3ubihj" path="res://Scripts/bat_mob.gd" id="4_iywne"]
-[ext_resource type="PackedScene" uid="uid://bvr0fbqaaqddg" path="res://tile_map.tscn" id="5_iywne"]
-[ext_resource type="Script" uid="uid://0ri7vqoalgm3" path="res://tile_map.gd" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bvr0fbqaaqddg" path="res://scenes/level 2.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://0ri7vqoalgm3" path="res://Scripts/Level 2.gd" id="6_p57ef"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
 rough = true
