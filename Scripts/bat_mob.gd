@@ -18,7 +18,7 @@ func _physics_process(_delta: float) -> void:
 	# Move at a steady speed; direction is 1 (right) or -1 (left)
 	linear_velocity = Vector2(speed * direction, 0)
 	print(global_position)
-	global_position.y = -97
+	global_position.y = -97 #Makes sure it's level
 
 func _on_timer_timeout():
 	direction *= -1
