@@ -26,5 +26,5 @@ gravity_direction = Vector2(0, 0)
 gravity = -50000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=953154835]
-position = Vector2(2, -1)
+position = Vector2(3, 0)
 shape = SubResource("CircleShape2D_xytf0")
