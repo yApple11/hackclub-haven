@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxdm1100pbcl4"
-path="res://.godot/imported/bouncy ball.png-14216c31c8c365c210361ee56124e840.ctex"
+uid="uid://dmgdl2okx1i1v"
+path="res://.godot/imported/bouncy ball.png 12-33-19-931.png-4efde57967a1bf3b0f675f799742f35f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/bouncy ball.png"
-dest_files=["res://.godot/imported/bouncy ball.png-14216c31c8c365c210361ee56124e840.ctex"]
+source_file="res://assets/bouncy ball.png 12-33-19-931.png"
+dest_files=["res://.godot/imported/bouncy ball.png 12-33-19-931.png-4efde57967a1bf3b0f675f799742f35f.ctex"]
 
 [params]
 

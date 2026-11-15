@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cuhnulsdmgreo"]
+
+[ext_resource type="Texture2D" uid="uid://dmgdl2okx1i1v" path="res://assets/bouncy ball.png 12-33-19-931.png" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://blbe0wrdm2qx0" path="res://assets/floor2.png" id="2_lnu2h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
+rough = true
+bounce = 0.8
+
+[sub_resource type="GDScript" id="GDScript_38j7h"]
+script/source = "extends RigidBody2D
+
+@export var movemement_speed := 300.0     # sideways push from left/right input
+@export var max_speed := 150.0      # stop pushing once moving this fast
+@export var jump_impulse := 200.0
+
+
+
+func _ready() -> void:
+	# Needed so get_contact_count() works (to know if we're touching the floor)
+	contact_monitor = true
+	max_contacts_reported = 1
+
+
+func _physics_process(_delta: float) -> void:
+	print(Input.is_action_pressed(\"ui_right\"))
+	# Left/right: push the ball with a force; physics handles the movement and bouncing
+	
+	var right := Vector2(10, 0)
+	var left := Vector2(-10,0)
+		
+	if Input.is_action_pressed(\"ui_left\"):
+		apply_central_impulse(left)
+		
+	if Input.is_action_pressed(\"ui_right\"):
+		apply_central_impulse(right)
+		
+	var count = 0
+	# Jump: only when touching something
+	if Input.is_action_just_pressed(\"ui_accept\") and get_contact_count() == 1:
+		apply_central_impulse(Vector2(0, -400))
+		count+=1
+	
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7yf00"]
+radius = 8.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scfaf"]
+texture = ExtResource("2_lnu2h")
+2:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xytf0"]
+sources/0 = SubResource("TileSetAtlasSource_scfaf")
+
+[node name="game" type="Node2D" unique_id=1500159793]
+position = Vector2(-5, -9)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=147486457]
+offset = Vector2(0, -40)
+zoom = Vector2(4, 4)
+
+[node name="Ball whole" type="RigidBody2D" parent="." unique_id=1458652964]
+physics_material_override = SubResource("PhysicsMaterial_epypp")
+script = SubResource("GDScript_38j7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball whole" unique_id=1551410805]
+position = Vector2(-20, -2)
+shape = SubResource("CircleShape2D_7yf00")
+
+[node name="Sprite" type="Sprite2D" parent="Ball whole" unique_id=849156608]
+position = Vector2(-21, -1)
+texture = ExtResource("1_yqjtg")
+
+[node name="Level 1 map" type="TileMap" parent="." unique_id=77457556]
+tile_set = SubResource("TileSet_xytf0")
+format = 2
+layer_0/tile_data = PackedInt32Array(131068, 131072, 3, 131069, 131072, 3, 131070, 131072, 3, 131071, 131072, 3, 65536, 131072, 3, 65537, 131072, 3, 65538, 131072, 3, 131067, 131072, 3, 131063, 131072, 3, 131064, 131072, 3, 131065, 131072, 3, 131066, 131072, 3, 196599, 131072, 3, 196600, 131072, 3, 196601, 131072, 3, 196602, 131072, 3, 196603, 131072, 3, 196604, 131072, 3, 196605, 131072, 3, 196606, 131072, 3, 196607, 131072, 3, 131072, 131072, 3, 131073, 131072, 3, 131075, 131072, 3, 131074, 131072, 3, 65539, 131072, 3, 65540, 131072, 3, 65541, 131072, 3, 65542, 131072, 3, 65543, 131072, 3, 65544, 131072, 3, 65545, 131072, 3, 131081, 131072, 3, 131080, 131072, 3, 131079, 131072, 3, 131078, 131072, 3, 131077, 131072, 3, 131076, 131072, 3, 196598, 131072, 3, 131062, 131072, 3, 65526, 131072, 3, -10, 131072, 3, -65546, 131072, 3, 131061, 131072, 3, 65525, 131072, 3, -11, 131072, 3, 196597, 131072, 3, -65547, 131072, 3, -131083, 131072, 3, -196619, 131072, 3, -131082, 131072, 3, -196618, 131072, 3, -262154, 131072, 3, -262155, 131072, 3, -327691, 131072, 3, -327690, 131072, 3, -393226, 131072, 3, -393227, 131072, 3, -458763, 131072, 3, -458762, 131072, 3, -524299, 131072, 3, -524298, 131072, 3, -589835, 131072, 3, -589834, 131072, 3, -655371, 131072, 3, -655370, 131072, 3, -720907, 131072, 3, -720906, 131072, 3, -786443, 131072, 3, -786442, 131072, 3, -786441, 131072, 3, -720905, 131072, 3, -720904, 131072, 3, -786440, 131072, 3, -786439, 131072, 3, -720903, 131072, 3, -720902, 131072, 3, -786438, 131072, 3, -786437, 131072, 3, -720901, 131072, 3, -720900, 131072, 3, -786436, 131072, 3, -786435, 131072, 3, -720899, 131072, 3, -720898, 131072, 3, -720897, 131072, 3, -786434, 131072, 3, -786433, 131072, 3, -851968, 131072, 3, -786432, 131072, 3, -786431, 131072, 3, -851967, 131072, 3, -851966, 131072, 3, -786430, 131072, 3, -786429, 131072, 3, -786428, 131072, 3, -851965, 131072, 3, -851964, 131072, 3, -851963, 131072, 3, -786427, 131072, 3, -786426, 131072, 3, -786425, 131072, 3, -851961, 131072, 3, -851962, 131072, 3, -851960, 131072, 3, -786424, 131072, 3, -851959, 131072, 3, -786423, 131072, 3, -131070, 131072, 3, -131069, 131072, 3, -131068, 131072, 3, -131067, 131072, 3, -131066, 131072, 3, -196606, 131072, 3, -196605, 131072, 3, -196604, 131072, 3, -196603, 131072, 3, -196602, 131072, 3, -131065, 131072, 3, -196601, 131072, 3, 65546, 131072, 3)

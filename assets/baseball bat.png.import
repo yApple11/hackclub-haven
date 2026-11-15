@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blbe0wrdm2qx0"
-path="res://.godot/imported/floor2.png-35bc79a0af8e9437ace2bba6a2f0a4e7.ctex"
+uid="uid://ciwa5ght5eetn"
+path="res://.godot/imported/baseball bat.png-4fbfd8a779e23de785d06bf7ecd0e295.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/floor2.png"
-dest_files=["res://.godot/imported/floor2.png-35bc79a0af8e9437ace2bba6a2f0a4e7.ctex"]
+source_file="res://assets/baseball bat.png"
+dest_files=["res://.godot/imported/baseball bat.png-4fbfd8a779e23de785d06bf7ecd0e295.ctex"]
 
 [params]
 
