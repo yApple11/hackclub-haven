@@ -9,6 +9,7 @@ var direction := 1
 func _ready() -> void:
 	gravity_scale = 0
 	lock_rotation = true
+	
 	#global_position = start_position
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
