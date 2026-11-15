@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xytf0"]
 size = Vector2(10, 52)
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1946123408]
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1946123408 groups=["enemey"]]
 
 [node name="BaseballBat" type="Sprite2D" parent="." unique_id=1719217930]
 position = Vector2(-4, -7)

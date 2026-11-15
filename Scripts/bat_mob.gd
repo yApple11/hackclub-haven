@@ -21,5 +21,4 @@ func _physics_process(_delta: float) -> void:
 	global_position.y = -97
 
 func _on_timer_timeout():
-	
 	direction *= -1
