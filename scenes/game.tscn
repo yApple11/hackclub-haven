@@ -14,26 +14,28 @@ bounce = 0.5
 [sub_resource type="GDScript" id="GDScript_38j7h"]
 script/source = "extends RigidBody2D
 
-<<<<<<< HEAD
-# This holds a reference to the active player in the scene
+@export var respawn_point = Vector2(-5,9)
 
-@export var movemement_speed := 300.0     # sideways push from left/right input
-@export var max_speed := 150.0      # stop pushing once moving this fast
-@export var jump_impulse := 200.0
-=======
->>>>>>> 1eb19a04c146ecddcfe269a1c53e3d9bd5cb8f2a
+var respawn := false
 
 
 
-func _ready() -> void:
-	# Needed so get_contact_count() works (to know if we're touching the floor)
+func _ready() -> void: #Function to initialize things for the begginnign
 	contact_monitor = true
-	max_contacts_reported = 1
-
-
-func _physics_process(_delta: float) -> void:
-	# Left/right: push the ball with a force; physics handles the movement and bouncing
+	max_contacts_reported = 2
+	body_entered.connect(_on_body_entered)
 	
+func _on_body_entered(body: Node) -> void: #Is it touching an emey?
+	if body.is_in_group(\"enemey\"):
+		respawn = true
+
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void: #Respawn when it's touching an eenemy
+	if respawn:
+		state.transform.origin = respawn_point
+		state.linear_velocity = Vector2.ZERO
+		state.angular_velocity = 0.0
+		respawn = false
+func _physics_process(_delta: float) -> void:	
 	
 	var right := Vector2(10, 0)
 	var left := Vector2(-10,0)
@@ -45,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 		apply_central_impulse(right)
 		
 	# Jump: only when touching something
-	if Input.is_action_just_pressed(\"ui_accept\") and get_contact_count() == 1:
+	if Input.is_action_just_pressed(\"ui_accept\") and get_contact_count() > 0:
 		apply_central_impulse(Vector2(0, -400))
 		
 	print(\"ball position \", global_position)
@@ -126,10 +128,8 @@ layer_0/tile_data = PackedInt32Array(262167, 65536, 2, 327703, 65536, 2, 262168,
 position = Vector2(-4, -88)
 script = ExtResource("4_iywne")
 
-<<<<<<< HEAD
-[node name="TileMap" parent="." unique_id=1189788139 instance=ExtResource("5_iywne")]
-script = ExtResource("6_p57ef")
-=======
 [node name="Timer" type="Timer" parent="Bat mob" unique_id=451226823]
 wait_time = 2.0
->>>>>>> 1eb19a04c146ecddcfe269a1c53e3d9bd5cb8f2a
+
+[node name="level 2" parent="." unique_id=1189788139 instance=ExtResource("5_iywne")]
+script = ExtResource("6_p57ef")
