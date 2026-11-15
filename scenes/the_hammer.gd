@@ -3,13 +3,10 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 
-#func _ready() -> void:
-	#gravity_scale = 0
-	#lock_rotation = true
 
 
 func _physics_process(delta):
-	if the_player.position.y > 250:
+	if the_player.position.y > 250 && the_player.position >2060 && the_player.position <3312:
 		var direction=(the_player.position-position).normalized()
 		velocity = direction * SPEED
 		move_and_slide()
